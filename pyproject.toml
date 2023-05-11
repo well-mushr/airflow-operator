@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "airflow-operator"
+version = "0.1.0"
+description = ""
+authors = ["Wellington Ramos <wmaramos@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ansible = "^7.5.0"
+molecule = "^5.0.1"
+ansible-runner = "^2.3.2"
+ansible-runner-http = "^1.0.0"
+openshift = "^0.13.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

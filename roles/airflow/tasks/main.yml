@@ -1,0 +1,16 @@
+---
+- import_vars: {{ ddu_name }}/{{ environment }}.yaml
+
+- name: Add airflow stable chart repo
+  kubernetes.core.helm_repository:
+    name: airflow
+    repo_url: https://airflow-helm.github.io/charts
+
+- name: Install Airflow
+  kubernetes.core.helm:
+    name: '{{ ansible_operator_meta.name }}-airflow'
+    chart_ref: airflow/airflow
+    release_namespace: '{{ ansible_operator_meta.namespace }}'
+    values:
+      airflow:
+        executor: CeleryExecutor

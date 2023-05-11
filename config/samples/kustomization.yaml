@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- datahub_v1alpha1_airflow.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

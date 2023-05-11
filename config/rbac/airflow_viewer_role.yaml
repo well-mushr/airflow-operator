@@ -1,0 +1,27 @@
+# permissions for end users to view airflows.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: airflow-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: airflow-operator
+    app.kubernetes.io/part-of: airflow-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: airflow-viewer-role
+rules:
+- apiGroups:
+  - datahub.deliveryhero.net
+  resources:
+  - airflows
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - datahub.deliveryhero.net
+  resources:
+  - airflows/status
+  verbs:
+  - get
